@@ -19,6 +19,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import static frc.robot.Constants.*;
@@ -158,13 +159,15 @@ public class DrivetrainSubsystem extends SubsystemBase {
   /**
    * Sets the gyroscope angle to zero. This can be used to set the direction the robot is currently facing to the
    * 'forwards' direction.
+ * @return 
    */
-  public void zeroGyroscope() {
+  public Command zeroGyroscope() {
     // FIXME Remove if you are using a Pigeon
    // m_pigeon.setFusedHeading(0.0);
 
     // FIXME Uncomment if you are using a NavX
   m_navx.zeroYaw();
+return null;//############
   }
 
   public Rotation2d getGyroscopeRotation() {
@@ -185,6 +188,8 @@ public class DrivetrainSubsystem extends SubsystemBase {
     m_chassisSpeeds = chassisSpeeds;
   }
 
+
+  
   @Override
   public void periodic() {
     SwerveModuleState[] states = m_kinematics.toSwerveModuleStates(m_chassisSpeeds);

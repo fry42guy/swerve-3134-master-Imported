@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.DefaultDriveCommand;
+import frc.robot.subsystems.AirMod;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.RoboArm;
 
@@ -32,11 +33,14 @@ public class RobotContainer {
 
   private final XboxController m_controller = new XboxController(0);
   private final RoboArm m_RobotArm = new RoboArm();
+  private final AirMod M_PCM = new AirMod();
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+
+    M_PCM.Start();
     // Set up the default command for the drivetrain.
     // The controls are for field-oriented driving:
     // Left stick Y axis -> forward and backwards movement
